@@ -34,7 +34,7 @@ def url_checker():
     
    
         encoded_url = urllib.parse.quote(url_input, safe='')
-        api_url = f"https://www.ipqualityscore.com/api/json/url/lAr2RpCUzDm6TRSENidmCsOdne1MvOIM/{url_input}"#uses the api to check if the url is safe or not
+        api_url = f"insert your personal api line here (i use ip quality score){url_input}"#uses the api to check if the url is safe or not
         data = requests.get(api_url + encoded_url)
         print(json.dumps(data.json(), indent=4))#prints out the information regarding if the url is safe or not and the information in relation
     except json.JSONDecodeError:  # Handles JSON decoding errors
@@ -44,6 +44,7 @@ def url_checker():
         url_checker()
     except Exception as e:  # Handles any other unexpected errors
         print(f"An unexpected error occurred: {e}")
+    main()
         
 def grammarcheck():
     user_text = input("please enter the name of your document or text file: ")
@@ -62,6 +63,7 @@ def grammarcheck():
         print(f"Error: File '{user_text}' not found.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+    main()
 
 def printFish(N) :#prints fish
  
