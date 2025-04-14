@@ -10,17 +10,12 @@ def main(N):
     print("Welcome to the phising detector")
     time.sleep(2)
     while True:
-        user_choice= input(f"The tools avalible are \n url validator \n grammar chcecker\n quit\n enter your choice here: ")
+        user_choice= input(f"please input which tool you would like to use the tools avalible are \n url validator \n grammar chcecker\n quit\n enter your choice here: ")
         if user_choice == "url validator":
-
-            url_checker()
-            # grammarcheck(user_text)
-            if url_checker():  # Call url_checker without arguments
-                print("This is a valid url but be cautious")
-            else:
-                print("No this is not a valid url")
+         url_checker()
+              
         if user_choice=="grammar checker":
-            grammarcheck()
+         grammarcheck()
         if user_choice=="quit":
             break
         else: print("Please input a valid choice")
