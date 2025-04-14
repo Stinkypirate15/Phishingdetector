@@ -67,7 +67,7 @@ def printFish(N) :#prints fish
     for i in range(N) :
         spaces1 += ' ';
  
-    spaces2 = spaces1;
+    
  
     for i in range( 2 * N + 1) :
         # For upper part
