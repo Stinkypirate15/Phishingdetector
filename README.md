@@ -8,3 +8,5 @@ changes made 4/14/2025
 * replaced personal api with instructions on how to replace it with your own
 
 * fixed prompts to improve clarity and grammar
+
+*cleaned up the main section to get rid of repition 
