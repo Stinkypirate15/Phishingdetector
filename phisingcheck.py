@@ -10,7 +10,7 @@ def main(N):
     print("Welcome to the phising detector")
     time.sleep(2)
     while True:
-        user_choice= input(f"please input which tool you would like to use the tools avalidble are \n url validator \n grammar chcecker\n quit\n enter your choice here: ")
+        user_choice= input(f"The tools avalible are \n url validator \n grammar chcecker\n quit\n enter your choice here: ")
         if user_choice == "url validator":
 
             url_checker()
