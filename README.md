@@ -11,7 +11,7 @@ changes made 4/14/2025
 
 * fixed prompts to improve clarity and grammar
 
-* cleaned up the main section to get rid of repition
+* cleaned up the main section to get rid of repetition
 
 changes made 4/15/2025
 
