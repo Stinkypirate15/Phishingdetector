@@ -9,4 +9,16 @@ changes made 4/14/2025
 
 * fixed prompts to improve clarity and grammar
 
-* cleaned up the main section to get rid of repition 
+* cleaned up the main section to get rid of repition
+
+changes made 4/15/2025
+
+  * program now writes check urls to csv file(formating not proper and will be optional in future)
+
+  * fixed userinput so it would work properly after looping
+
+  * Changed if statements to elif to allow for proper looping
+
+  * Added better formating for clarity on prompts
+
+  * fixed spelling mistakes
