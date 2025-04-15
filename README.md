@@ -1,3 +1,5 @@
+!!! the url checker section uses a custom api I use ip quality score(free) but youll have to replace the line with your choice of url check api!!
+
 # Phishing detector
 This project  allows the user to detect basic forms of phishing
 
