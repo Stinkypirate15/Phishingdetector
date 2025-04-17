@@ -26,24 +26,50 @@ def main(N):
 
 def url_checker():
     try:
-        
-        url_input = input("please enter the url you would like to check: ")  # Prompts user to input their URL
-    
-   
+        url_input = input("Please enter the URL you would like to check: ")  # Prompts user to input their URL
+
         encoded_url = urllib.parse.quote(url_input, safe='')
-        api_url = f"insert your personal api line here (i use ip quality score){url_input}"#uses the api to check if the url is safe or not
-        data = requests.get(api_url + encoded_url)
-        df=pd.DataFrame({data})#writes url checker output to csv file
-        df.to_csv(f"{url_input}.csv",index=False)
-        print(json.dumps(data.json(), indent=4))#prints out the information regarding if the url is safe or not and the information in relation
-        time.sleep(3)
+        api_url = f"insert your personal api line here (i use ip quality score){url_input}"  # Uses the API to check if the URL is safe or not
+        response = requests.get(api_url + encoded_url)
+        data = response.json()  # Parse the JSON response
+
+        # Print the JSON response for the user
+        print(json.dumps(data, indent=4))
+
+        # Flatten the JSON data for better readability
+        flattened_data = {}
+        for key, value in data.items():
+            if isinstance(value, dict):  # If the value is a nested dictionary, flatten it
+                for sub_key, sub_value in value.items():
+                    flattened_data[f"{key}_{sub_key}"] = sub_value
+            else:
+                flattened_data[key] = value
+
+        # Ask the user if they want to save the information to a file
+        while True:
+            user_input = input("Would you like to save the info to a file? (Y or N): ").strip().lower()
+            if user_input == "y":
+                # Convert the flattened JSON data into a DataFrame
+                df = pd.DataFrame([flattened_data])  # Wrap the flattened data in a list to create a single-row DataFrame
+                # Save the DataFrame to a CSV file
+                csv_filename = f"{url_input.replace('/', '_')}.csv"  # Replace slashes in the URL to avoid file path issues
+                df.to_csv(csv_filename, index=False)
+                print(f"Data saved to {csv_filename}")
+                break  # Exit the loop
+            elif user_input == "n":
+                print("Data not saved.")
+                break  # Exit the loop
+            else:
+                print("Please input a valid choice (Y or N).")
+
+        time.sleep(3)  # Pause for a moment before returning to the main loop
+
     except json.JSONDecodeError:  # Handles JSON decoding errors
         print("Error: Unable to decode the JSON response. Please check the API or the URL.")
         time.sleep(3)
     except requests.exceptions.RequestException as e:  # Handles general request-related errors
         print(f"Error: A request error occurred - {e}")
         time.sleep(3)
-        url_checker()
     except Exception as e:  # Handles any other unexpected errors
         print(f"An unexpected error occurred: {e}")
         time.sleep(3)
@@ -70,6 +96,8 @@ def grammarcheck():
         print(f"An unexpected error occurred: {e}")
         time.sleep(3)
     
+
+
 
 
 
