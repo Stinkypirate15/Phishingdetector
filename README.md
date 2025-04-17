@@ -24,3 +24,9 @@ changes made 4/15/2025
   * Added better formating for clarity on prompts
 
   * fixed spelling mistakes
+
+changes made 4/17/2025
+
+  * made it optional to save csv file
+
+  * fixed formating of csv file
