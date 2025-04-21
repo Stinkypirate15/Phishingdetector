@@ -5,6 +5,7 @@ import requests
 import json
 import time
 import pandas as pd 
+import os
 
 def main(N):
     printFish(N)
@@ -52,8 +53,9 @@ def url_checker():
                 # Convert the flattened JSON data into a DataFrame
                 df = pd.DataFrame([flattened_data])  # Wrap the flattened data in a list to create a single-row DataFrame
                 # Save the DataFrame to a CSV file
-                csv_filename = f"{url_input.replace('/', '_')}.csv"  # Replace slashes in the URL to avoid file path issues
-                df.to_csv(csv_filename, index=False)
+                csv_filename = f"url.csv"  # Replace slashes in the URL to avoid file path issues
+                file_exists = os.path.isfile(csv_filename)#checks to see if file exist
+                df.to_csv(csv_filename, mode='a', index=False, header=not file_exists)  # Append to the file if it exists
                 print(f"Data saved to {csv_filename}")
                 break  # Exit the loop
             elif user_input == "n":
