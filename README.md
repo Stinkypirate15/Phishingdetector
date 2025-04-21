@@ -30,3 +30,7 @@ changes made 4/17/2025
   * made it optional to save csv file
 
   * fixed formating of csv file
+
+changes made 4/21/2025
+ 
+  * made it so that all new saved urls will be added to a csv file without creating a new one each time
